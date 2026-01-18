@@ -1,25 +1,19 @@
 package stepDefinitions;
 
+import AppPages.LoginPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.chrome.ChromeDriver;
+import static hooks.Hooks.driver;
+import static hooks.Hooks.LP;
 
-import java.time.Duration;
+
 
 public class Loginpagesteps {
-    WebDriver driver;
 
-    @Given("I launch the Chrome browser")
-    public void i_launch_the_chrome_browser() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-    }
     @When("Hit the OrangeHRM URL")
     public void hit_the_orange_hrm_url() {
 
@@ -40,6 +34,18 @@ public class Loginpagesteps {
     public void Verifying_OrangeHRM_Hyperlink(){
         boolean status = driver.findElement(By.xpath("//a[normalize-space()='OrangeHRM, Inc']")).isDisplayed();
         Assert.assertTrue(status);
+    }
+
+    @Then("Enter {string} and {string} credentials")
+    public void Enter_Creds(String Uname, String password) throws Exception {
+        Thread.sleep(2000);
+        LP.EnterUsername(Uname);
+        LP.EnterPassword(password);
+    }
+
+    @Then("Click on LoginButton")
+    public void ClickLogin(){
+        LP.ClickonLogin();
     }
 
 }
