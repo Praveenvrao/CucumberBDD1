@@ -7,6 +7,7 @@ import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import AppPages.LeavePage;
+import AppPages.AdminPage;
 
 import java.time.Duration;
 
@@ -16,6 +17,7 @@ public class Hooks {
     public static LoginPage LP;
     public static HomepageafterLogin HP;
     public static LeavePage LeaveP;
+    public static AdminPage AdminP;
 
     @Before
     public void Setup(){
@@ -25,6 +27,7 @@ public class Hooks {
         LP = new LoginPage(driver);
         HP = new HomepageafterLogin(driver);
         LeaveP = new LeavePage(driver);
+        AdminP = new AdminPage(driver);
     }
 
     @After
