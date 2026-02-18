@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import AppPages.LoginPage;
+import Utils.Excelutils;
+import io.cucumber.java.PendingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +12,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static hooks.Hooks.driver;
 import static hooks.Hooks.LP;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 
 public class Loginpagesteps {
+
+    Map<String, String> TESTDATA = new HashMap<>();
 
     @When("Hit the OrangeHRM URL")
     public void hit_the_orange_hrm_url() {
@@ -48,4 +55,15 @@ public class Loginpagesteps {
         LP.ClickonLogin();
     }
 
+    @Then("Login with {string} User")
+    public void LoginwithUser(String TestcaseID){
+        TESTDATA = Excelutils.getTestdata(TestcaseID);
+
+        String User = TESTDATA.get("User");
+        String Password = TESTDATA.get("Password");
+
+        LP.EnterUsername(User);
+        LP.EnterPassword(Password);
+        LP.ClickonLogin();
+    }
 }
