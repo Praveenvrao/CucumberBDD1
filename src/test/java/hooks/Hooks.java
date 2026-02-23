@@ -10,8 +10,12 @@ import AppPages.LeavePage;
 import AppPages.AdminPage;
 
 import java.time.Duration;
+import java.util.Map;
+import Utils.Excelutils;
+import java.util.HashMap;
 
 public class Hooks {
+    public static Map<String, String> TESTDATA;
 
     public static  WebDriver driver;
     public static LoginPage LP;
@@ -34,4 +38,5 @@ public class Hooks {
     public void Teardown(){
         driver.quit();
     }
+
 }

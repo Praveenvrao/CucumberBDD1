@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static hooks.Hooks.driver;
 import static hooks.Hooks.LP;
+import static hooks.Hooks.TESTDATA;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,8 +19,6 @@ import java.util.Map;
 
 
 public class Loginpagesteps {
-
-    Map<String, String> TESTDATA = new HashMap<>();
 
     @When("Hit the OrangeHRM URL")
     public void hit_the_orange_hrm_url() {

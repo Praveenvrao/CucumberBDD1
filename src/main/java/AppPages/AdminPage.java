@@ -32,9 +32,9 @@ public class AdminPage {
         Thread.sleep(2000);
         Users.click();
     }
-    public void Enter_User_and_Search(String Username){
+    public void Enter_User_and_Search(String Adminname){
         User_Input.clear();
-        User_Input.sendKeys(Username);
+        User_Input.sendKeys(Adminname);
         Search.click();
     }
     public int Get_Table_Row_Count(){

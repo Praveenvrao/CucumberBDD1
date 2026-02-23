@@ -40,4 +40,7 @@ Feature: Orange HRM Homepage
   Scenario: Verify the Homepage after login
     Then Login with "TC01" User
     Then Verify the Homepage Logo afterlogin
+    Then Click on Adminlink
+    Then Enter Username with Testdata and search
+    Then Verify the Logout
 
