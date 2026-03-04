@@ -38,4 +38,16 @@ public class BuzzPagesteps {
         System.out.println(BuzzP.GetLatestPost());
         Assert.assertEquals(TESTDATA.get("News"), BuzzP.GetLatestPost());
     }
+
+    @Then("click on Mostliked Posts option")
+    public void clickonMostlikedPostsoption() {
+        BuzzP.ClickMostlikedPost();
+    }
+
+    @Then("Verify the Most liked Buzzpost and count the number of likes")
+    public void VerifytheMostlikedBuzzpostandcountthenumberoflikes() throws InterruptedException {
+        Thread.sleep(2000);
+        int likesnumber = BuzzP.GetMostlikedpostandcount();
+        System.out.println("The number of likes for the most liked post is: " + likesnumber);
+    }
 }

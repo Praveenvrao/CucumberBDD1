@@ -8,3 +8,11 @@ Scenario: Post and verify the Buzzpost
   Then Write and post the buzzpost
   Then Verify the posted Buzzpost in newsfeed
   Then Verify the Logout
+
+Scenario: Verify the Most liked Buzzpost and count the number of likes
+  When Hit the OrangeHRM URL
+  Then Login with "TC02" User
+  Then click on Buzz link
+  Then click on Mostliked Posts option
+  Then Verify the Most liked Buzzpost and count the number of likes
+  Then Verify the Logout

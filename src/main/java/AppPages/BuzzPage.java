@@ -21,6 +21,8 @@ public class BuzzPage {
     @FindBy (xpath = "//textarea[@class='oxd-buzz-post-input']") WebElement NewsfeedEntry;
     @FindBy (xpath = "//button[@type='submit']") WebElement Postbutton;
     @FindBy (xpath ="(//div[contains(@class,'orangehrm-buzz-post-body')]//p)[1]") WebElement Latestpost;
+    @FindBy (xpath = "//i[@class='oxd-icon bi-heart-fill oxd-button-icon']") WebElement MostLikedPostoption;
+    @FindBy (xpath = "(//*[@class='oxd-text oxd-text--p orangehrm-buzz-stats-active'])[1]") WebElement MostLikedpostlikecount;
 
 
     //Methods
@@ -42,6 +44,14 @@ public class BuzzPage {
     }
     public void refreshPage() {
         driver.navigate().refresh();
+    }
+    public void ClickMostlikedPost(){
+        MostLikedPostoption.click();
+    }
+    public int GetMostlikedpostandcount(){
+        String Mostlikedpostlikecounttext = MostLikedpostlikecount.getText();
+        int likecount = Integer.parseInt(Mostlikedpostlikecounttext.split(" ")[0]);
+        return likecount;
     }
 
 
